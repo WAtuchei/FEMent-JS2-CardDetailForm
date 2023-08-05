@@ -1,5 +1,21 @@
 @import '../../varibles';
 
-.Card-BG {
+.Card-bg {
+    background-image: url(../../../assets/images/bg-main-desktop.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     background-color: $DarkViolet;
+}
+.Card-front, .Card-back {
+    width: 447px;
+    height: 245px;
+    z-index: 2;
+}
+.Card-front { background-image: url(../../../assets/images/bg-card-front.png); }
+.Card-back { background-image: url(../../../assets/images/bg-card-back.png); }
+
+.Card-logo {
+    svg {
+        
+    }
 }

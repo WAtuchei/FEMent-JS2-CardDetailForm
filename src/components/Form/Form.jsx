@@ -1,7 +1,11 @@
-import "../../sass/components/Form/form.scss";
+import { useContext } from "react";
+import formData from "../../formContext";
 import { submitHandler } from "./FormHandler";
+import "../../sass/components/Form/form.scss";
 
 function Form() {
+  const {form} = useContext(formData)
+  const isError = false
 
   return (
     <div className="flex basis-4/6 justify-center items-center">
@@ -11,41 +15,44 @@ function Form() {
         onSubmit={submitHandler}
       >
         {/* Card Name */}
-        <div className="Card-name flex flex-col mx-4 my-2">
+        <div className="flex flex-col mx-4 my-2">
           <label htmlFor="cardholderName">CARDHOLDER NAME</label>
           <input
             type="text"
             name="cardholderName"
-            placeholder="e.g. Jane Appleseed"
+            placeholder={form.cardName}
             className="mt-1.5 px-2.5 py-2"
           />
         </div>
         {/* Card Number */}
-        <div className="Card-number flex flex-col mx-4 my-2">
+        <div className="flex flex-col mx-4 my-2">
           <label htmlFor="cardNumber">CARD NUMBER</label>
           <input
             type="text"
             name="cardNumber"
-            placeholder="e.g. 1234 5678 9123 0000"
+            placeholder={form.cardNum}
             className="mt-1.5 px-2.5 py-2"
           />
+          {!isError && <p className="Error-MSG py-1 text-red-500">Wrong format, numbers only</p>}
         </div>
         {/* Date CVC */}
-        <div className="Card-date-CVC flex flex-row mx-4 my-2 gap-x-1">
+        <div className="flex flex-row mx-4 my-2 gap-x-1">
           {/* Date */}
-            <div className="Card-date basis-1/2 pe-1 py-2 gap-x-1">
+            <div className="basis-1/2 pe-1 py-2 gap-x-1">
                 <label htmlFor="expire">Exp. Date (MM/YY)</label>
                 <div className="flex flex-row my-1.5 gap-x-1">
-                    <input type="text" placeholder="MM" className="w-1/2 px-2.5 py-2" />
-                    <input type="text" placeholder="YY" className="w-1/2 px-2.5 py-2" />
+                    <input type="text" placeholder={form.cardM} className="w-1/2 px-2.5 py-2" />
+                    <input type="text" placeholder={form.cardY} className="w-1/2 px-2.5 py-2" />
                 </div>
+                {!isError && <p className="Error-MSG text-red-500">Can&apos;t be blank</p>}
             </div>
             {/* CVC */}
-            <div className="Card-CVC basis-1/2 ps-1 py-2">
+            <div className="basis-1/2 ps-1 py-2">
                 <label htmlFor="CVC">CVC</label>
                 <div>
-                    <input type="text" placeholder="e.g. 123" className="w-full my-1.5 px-2.5 py-2" />
+                    <input type="text" placeholder={form.cardCvc} className="w-full my-1.5 px-2.5 py-2" />
                 </div>
+                {!isError && <p className="Error-MSG text-red-500">Can&apos;t be blank</p>}
             </div>
         </div>
         {/* Form BTN */}
