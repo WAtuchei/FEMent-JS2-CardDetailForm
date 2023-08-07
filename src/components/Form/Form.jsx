@@ -8,7 +8,7 @@ function Form() {
   const isError = false
 
   return (
-    <div className="flex basis-4/6 justify-center items-center">
+    <section className="flex basis-4/6 justify-center items-center">
       <form
         className="w-3/4 lg:w-1/2 h-1/2 flex flex-col justify-start"
         noValidate
@@ -60,7 +60,7 @@ function Form() {
           <button className="w-full py-3 text-center text-white">Confirm</button>
         </div>
       </form>
-    </div>
+    </section>
   );
 }
 

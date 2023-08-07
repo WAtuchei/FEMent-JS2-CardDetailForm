@@ -1,10 +1,11 @@
 @import '../../varibles';
 
 form {
-    width: clamp(340px, 55%, 380px) !important;
+    width: clamp(310px, 55%, 380px) !important;
     font-size: 13px;
     font-weight: 500;
     letter-spacing: 1px;
+    overflow: visible;
 
     input {
         border: 1px solid $LightGray;

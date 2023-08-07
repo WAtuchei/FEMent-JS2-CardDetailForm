@@ -4,18 +4,33 @@
     background-image: url(../../../assets/images/bg-main-desktop.png);
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     background-color: $DarkViolet;
-}
-.Card-front, .Card-back {
-    width: 447px;
-    height: 245px;
-    z-index: 2;
 }
 .Card-front { background-image: url(../../../assets/images/bg-card-front.png); }
 .Card-back { background-image: url(../../../assets/images/bg-card-back.png); }
+.Card-front, .Card-back {
+    width: clamp(280px, 100%, 480px);
+    height: clamp(180px, 100%, 280px);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
 
-.Card-logo {
-    svg {
+.Card-front {
+    .Card-logo {
+        position: absolute;
+        top: 5%;
+        left: 5%;
+    }
+    .Card-inform {
+        position: absolute;
+        bottom: calc(70% - 10vw);
+        left: 5%;
+    }
+}
+
+.Card-back {
+    .CVC-num {
         
     }
 }
