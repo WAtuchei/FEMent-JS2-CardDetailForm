@@ -25,10 +25,10 @@ function App() {
 
   return (
     <formContext.Provider value={exFormData}>
-      <div className="min-w-full min-h-screen flex flex-row">
+      <main className="min-w-full flex flex-row">
         <CardPreview />
         <Form />
-      </div>
+      </main>
     </formContext.Provider>
   );
 }

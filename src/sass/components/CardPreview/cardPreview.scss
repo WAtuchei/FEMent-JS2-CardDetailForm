@@ -1,36 +1,64 @@
 @import '../../varibles';
 
-.Card-bg {
+.Card-side {
     background-image: url(../../../assets/images/bg-main-desktop.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     background-color: $DarkViolet;
-}
-.Card-front { background-image: url(../../../assets/images/bg-card-front.png); }
-.Card-back { background-image: url(../../../assets/images/bg-card-back.png); }
-.Card-front, .Card-back {
-    width: clamp(280px, 100%, 480px);
-    height: clamp(180px, 100%, 280px);
-    background-size: contain;
-    background-repeat: no-repeat;
+    font-size: calc(12px + .5vw);
 }
 
-.Card-front {
-    .Card-logo {
-        position: absolute;
-        top: 5%;
-        left: 5%;
+.Card {
+    width: clamp(280px, calc(100% + 2dvw), 445px);
+    height: clamp(180px, 80%, 255px);
+
+    .Card-front, .Card-back {
+        background-size: contain;
+        background-repeat: no-repeat;
     }
-    .Card-inform {
-        position: absolute;
-        bottom: calc(70% - 10vw);
-        left: 5%;
+
+    .Card-front {
+        background-image: url(../../../assets/images/bg-card-front.png);
+        z-index: 2;
+
+        &__logo {
+            position: absolute;
+            top: calc(5% + 1dvw);
+            left: calc(3% + 1dvw);
+        }
+        &__inform {
+            position: absolute;
+            bottom: calc(70% - 10dvw);
+        }
+    }
+
+    .Card-back {
+        background-image: url(../../../assets/images/bg-card-back.png);
+
+        &__CVC--con {
+            position: relative;
+            top: calc(5% + 6dvw);            
+        }        
+        &__CVC--num {
+            position: absolute;
+            top: calc(1% + .5dvw);
+            right: 13%;                            
+        }
     }
 }
 
-.Card-back {
-    .CVC-num {
-        
+// Media Query
+@media only screen and (min-width: 1500px) {
+    .Card-back__CVC--num {
+        top: calc(80% - 1.5dvw) !important;
+    }
+}
+@media only screen and (min-width: 1740px) {
+    .Card-front__inform {
+        bottom: calc(70% - 8dvw) !important;
+    }
+    .Card-back__CVC--num {
+        top: calc(80% - 2.2dvw) !important;
     }
 }
