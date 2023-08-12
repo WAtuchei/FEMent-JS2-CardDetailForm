@@ -1,5 +1,7 @@
-const submitHandler = (e) => {
+
+
+const formHandler = (e) => {
    e.preventDefault()
 }
 
-export {submitHandler}
+export {formHandler}

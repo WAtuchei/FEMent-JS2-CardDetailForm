@@ -1,16 +1,15 @@
 @import '../../varibles';
 
 form {
-    width: clamp(310px, 55%, 380px) !important;
-    font-size: 13px;
+    width: clamp(300px, 55%, 380px) !important;
+    font-size: calc(10px + .3dvw);
     font-weight: 500;
     letter-spacing: 1px;
-    overflow: visible;
 
     input {
         border: 1px solid $LightGray;
         border-radius: 5px;
-        font-size: 15px;
+        font-size: calc(12px + .3dvw);
         font-weight: 600;
         caret-color: $NViolet;
         
@@ -27,11 +26,11 @@ form {
     button {
         background-color: $DarkViolet !important;
         border-radius: 5px;
-        font-size: 15px;
+        font-size: calc(13px + .3dvw);
         letter-spacing: .5px;
     }
 }
 .Error-MSG {
-    font-size: 12px;
+    font-size: calc(9px + .3dvw);
     letter-spacing: normal;
 }
