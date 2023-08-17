@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import formData from "../../formContext";
-import { formHandler } from "./FormHandler";
+import { nameHandler, formHandler } from "./FormHandler";
 import "../../sass/components/Form/form.scss";
 
 function Form() {
@@ -20,9 +20,9 @@ function Form() {
           <input
             type="text"
             name="cardholderName"
-            maxLength={36}
             placeholder={form.cardName}
             className="mt-1.5 px-2.5 py-2"
+            onChange={nameHandler}
           />
         </div>
         {/* Card Number */}
