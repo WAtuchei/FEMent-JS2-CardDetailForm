@@ -1,7 +1,7 @@
-import Form from './components/Form/Form'
-import CardPreview from './components/CardPreview/CardPreview'
+import Form from './pages/Form/Form'
+import CardPreview from './pages/CardPreview/CardPreview'
 import formContext from './formContext'
-import './components/Form/Form'
+import './pages/Form/Form'
 import './sass/reset.scss'
 import './App.css'
 
