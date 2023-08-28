@@ -7,10 +7,10 @@ function CardName() {
       [isError, setIsError] = useState(false)
 
     const cardNameHandler = (e) => {
-      const cardName = e.target.value
+      const cardNameValue = e.target.value
       e.target.maxLength = 36
-      setNameVal(cardName)
-      cardName.trim().length === 0 ? setIsError(true) : setIsError(false)
+      setNameVal(cardNameValue)
+      cardNameValue.trim().length === 0 ? setIsError(true) : setIsError(false)
     }
 
    return (

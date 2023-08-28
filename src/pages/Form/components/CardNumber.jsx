@@ -15,16 +15,15 @@ function CardNumber() {
     }
    
     const cardNumHandler = (e) => {
-      const cardNumber = e.target.value,
+      const cardNumberValue = e.target.value,
       regEx = /^\d+$/,
-      regExTest = cardNumber.trim(),
-      formatNum = formatCardNumber(cardNumber)
+      regExTest = cardNumberValue.trim(),
+      formatNum = formatCardNumber(cardNumberValue)
 
       e.target.maxLength = 19      
       setNumVal(formatNum)
       formatNum.trim().length === 0 ? setIsEmpty(true) : setIsEmpty(false)
       regEx.test(regExTest) || regExTest.length === 0 ? setIsError(false) : setIsError(true)
-      console.log(cardNumber);
     }
 
    return (
@@ -39,16 +38,18 @@ function CardNumber() {
             onChange={cardNumHandler}
           />
           
-          {isError && (
-          <p className="Error-MSG py-1 text-red-500">
-            Wrong format, numbers only
-          </p>
-          )}
-          {isEmpty && (
-          <p className="Error-MSG py-1 text-red-500">
-            Can&apos;t be blank 
-          </p>
-          )}
+          <>
+            {isError && (
+            <p className="Error-MSG py-1 text-red-500">
+              Wrong format, numbers only
+            </p>
+            )}
+            {isEmpty && (
+            <p className="Error-MSG py-1 text-red-500">
+              Can&apos;t be blank 
+            </p>
+            )}
+          </>
         </div>
    )
 }
