@@ -43,12 +43,14 @@ function DateCVC() {
         <label htmlFor="expire">Exp. Date (MM/YY)</label>
         <div className="flex flex-row my-1.5 gap-x-1">
           <input type="text"
+            name='expire'
             value={month}
             placeholder={form.cardM}
             className="w-1/2 px-2.5 py-2"
             onChange={monthHandler}
           />
           <input type="text"
+            name='expire'
             value={year}
             placeholder={form.cardY}
             className="Year w-1/2 px-2.5 py-2"
@@ -67,6 +69,7 @@ function DateCVC() {
       <div className="basis-1/2 ps-1 py-2">
         <label htmlFor="CVC">CVC</label>
         <input type="text"
+          id='CVC'
           value={cvc}
           placeholder={form.cardCvc}
           className="w-full my-1.5 px-2.5 py-2"

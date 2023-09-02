@@ -18,7 +18,7 @@ function CardName() {
           <label htmlFor="cardholderName">CARDHOLDER NAME</label>
           <input
             type="text"
-            name="cardholderName"
+            id="cardholderName"
             value={nameVal}
             placeholder={form.cardName}
             className="mt-1.5 px-2.5 py-2"

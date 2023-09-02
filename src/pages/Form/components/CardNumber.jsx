@@ -13,11 +13,11 @@ function CardNumber() {
         groups = cleanedInput.match(/.{1,4}/g);
       return groups ? groups.join(' ') : '';
     }
-   
+
     const cardNumHandler = (e) => {
       const cardNumberValue = e.target.value,
       regEx = /^\d+$/,
-      regExTest = cardNumberValue.trim(),
+      regExTest = cardNumberValue.replace(/\s/g, ''),
       formatNum = formatCardNumber(cardNumberValue)
 
       e.target.maxLength = 19      
@@ -31,7 +31,7 @@ function CardNumber() {
           <label htmlFor="cardNumber">CARD NUMBER</label>
           <input
             type="text"
-            name="cardNumber"
+            id='cardNumber'
             value={numVal}
             placeholder={form.cardNum}
             className="mt-1.5 px-2.5 py-2"
