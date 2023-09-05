@@ -21,6 +21,13 @@ function App() {
       cardY: "YY",
       cardCvc: "e.g. 123",
     },
+    data: {
+      name: '',
+      number: 0,
+      month: 0,
+      year: 0,
+      CVC: 0
+    }
   }
 
   return (

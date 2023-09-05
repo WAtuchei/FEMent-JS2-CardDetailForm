@@ -22,7 +22,7 @@ function CardNumber() {
 
       e.target.maxLength = 19      
       setNumVal(formatNum)
-      formatNum.trim().length === 0 ? setIsEmpty(true) : setIsEmpty(false)
+      regExTest.trim().length === 0 ? setIsEmpty(true) : setIsEmpty(false)
       regEx.test(regExTest) || regExTest.length === 0 ? setIsError(false) : setIsError(true)
     }
 

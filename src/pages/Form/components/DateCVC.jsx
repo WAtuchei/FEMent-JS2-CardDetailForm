@@ -1,7 +1,8 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 import formData from '../../../formContext'
 
-function DateCVC() {
+function DateCVC(props) {
   const { form } = useContext(formData),
     [month, setMonth] = useState(''),
     [year,setYear] = useState(''),
@@ -16,7 +17,7 @@ function DateCVC() {
         e.target.maxLength = 2
         setMonth(formatInput)
         monthValue.length === 0 ? setDateError(true) : setDateError(false)
-        monthValue.length === 2 ? document.querySelector('.Year').focus() : null
+        monthValue.length === 2 ? document.querySelector('.Year').select(0, monthValue.length) : null
     }
 
     const yearHandler = (e) => {
@@ -25,7 +26,8 @@ function DateCVC() {
 
         e.target.maxLength = 2
         setYear(formatInput)
-        yearValue.length === 0 ? setDateError(true) : setDateError(false)      
+        yearValue.length === 0 ? setDateError(true) : setDateError(false)
+        yearValue.length === 2 ? document.querySelector('#CVC').select(0, yearValue.length) : null
     }
 
     const cvcHandler = (e) => {
@@ -34,6 +36,26 @@ function DateCVC() {
         e.target.maxLength = 3
         setCVC(cvcValue)
         cvcValue.length === 0 ? setCvcError(true) : setCvcError(false)
+    }
+
+    const sendDateData = (m, y ,cvcNum) => {
+      const data = {
+        month: m,
+        year: y,
+        CVC: cvcNum
+      }
+      props.getData(data)
+      // console.log(`${m} / ${y}, ${cvcNum}`);
+    }
+
+    useEffect(() => {
+      sendDateData(month, year, cvc)
+    }, [month, year, cvc])
+
+    sendDateData.PropTypes = {
+      m: PropTypes.number.isRequired,
+      y: PropTypes.number.isRequired,
+      cvcNum: PropTypes.number.isRequired
     }
 
   return (
