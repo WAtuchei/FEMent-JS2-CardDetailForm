@@ -1,9 +1,10 @@
-import Form from './pages/Form/Form'
-import CardPreview from './pages/CardPreview/CardPreview'
-import formContext from './formContext'
-import './pages/Form/Form'
 import './sass/reset.scss'
 import './App.css'
+import './pages/Form/Form'
+import { useState } from 'react'
+import formContext from './formContext'
+import Form from './pages/Form/Form'
+import CardPreview from './pages/CardPreview/CardPreview'
 
 function App() {
   const exFormData = {
@@ -29,12 +30,16 @@ function App() {
       CVC: 0
     }
   }
+  const [formData, updateFormData] = useState(exFormData),
+    updateData = (newItem) => {
+
+    }
 
   return (
     <formContext.Provider value={exFormData}>
       <main className="min-w-full flex flex-row">
         <CardPreview />
-        <Form />
+        <Form getFormData ={updateData}/>
       </main>
     </formContext.Provider>
   );

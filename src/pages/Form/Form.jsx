@@ -1,9 +1,9 @@
-import { formHandler } from "./FormHandler";
 import "../../sass/components/Form/form.scss";
+import { useEffect, useState } from "react";
+import { formHandler } from "./FormHandler";
 import CardName from "./components/CardName";
 import CardNumber from "./components/CardNumber";
 import DateCVC from "./components/DateCVC";
-import { useState } from "react";
 
 function Form() {
   const cardData = {
@@ -15,23 +15,22 @@ function Form() {
   }
 
   const [data, updateData] = useState(cardData)
-  const getDateData = (newData) => {
+  const getData = (newData) => {
     const {m ,y, cvcNum} = newData,
       updateNewData = {
         month: m,
         year: y,
         CVC: cvcNum
       }
-
-    updateData(data => ({
-      ...data,
+    updateData(prevData => ({
+      ...prevData,
       ...updateNewData
     }))
-
-    
-    // console.log(m, y, cvcNum);
   }
-  console.log(cardData);
+
+  useEffect(() => {
+    console.log(data);
+  }, [data])
 
   return (
     <section className="flex basis-4/6 justify-center items-center">
@@ -42,7 +41,7 @@ function Form() {
       >
         <CardName />
         <CardNumber />
-        <DateCVC getData={getDateData} />
+        <DateCVC getData={getData} />
         
         {/* Form BTN */}
         <div className="mx-4 my-1 py-2 flex flex-row justify-center">

@@ -14,22 +14,24 @@ function DateCVC(props) {
       const monthValue = e.target.value,
         formatInput = monthValue.replace(/\D/g, '')
 
-        e.target.maxLength = 2
-        setMonth(formatInput)
-        monthValue.length === 0 ? setDateError(true) : setDateError(false)
-        monthValue.length === 2 ? document.querySelector('.Year').select(0, monthValue.length) : null
+      e.target.maxLength = 2
+      setMonth(formatInput)
+      monthValue.length === 0 ? setDateError(true) : setDateError(false)
+      monthValue.length === 2 ? 
+        document.querySelector('.Year').select(0, monthValue.length) 
+        : null
     }
-
     const yearHandler = (e) => {
       const yearValue = e.target.value,
         formatInput = yearValue.replace(/\D/g, '')
 
-        e.target.maxLength = 2
-        setYear(formatInput)
-        yearValue.length === 0 ? setDateError(true) : setDateError(false)
-        yearValue.length === 2 ? document.querySelector('#CVC').select(0, yearValue.length) : null
+      e.target.maxLength = 2
+      setYear(formatInput)
+      yearValue.length === 0 ? setDateError(true) : setDateError(false)
+      yearValue.length === 2 ? 
+        document.querySelector('#CVC').select(0, yearValue.length) 
+        : null
     }
-
     const cvcHandler = (e) => {
       const cvcValue = e.target.value
 
@@ -37,26 +39,20 @@ function DateCVC(props) {
         setCVC(cvcValue)
         cvcValue.length === 0 ? setCvcError(true) : setCvcError(false)
     }
-
-    const sendDateData = (m, y ,cvcNum) => {
-      const data = {
-        month: m,
-        year: y,
-        CVC: cvcNum
-      }
+    const sendDateData = (m, y, cvcNum) => {
+      const data = { m, y, cvcNum }
       props.getData(data)
-      // console.log(`${m} / ${y}, ${cvcNum}`);
+    }
+    
+    sendDateData.propTypes = {
+      m: PropTypes.number.isRequired,
+      y: PropTypes.number.isRequired,
+      cvcNum: PropTypes.number.isRequired
     }
 
     useEffect(() => {
       sendDateData(month, year, cvc)
     }, [month, year, cvc])
-
-    sendDateData.PropTypes = {
-      m: PropTypes.number.isRequired,
-      y: PropTypes.number.isRequired,
-      cvcNum: PropTypes.number.isRequired
-    }
 
   return (
     <div className="flex flex-row mx-4 my-2 gap-x-1">
