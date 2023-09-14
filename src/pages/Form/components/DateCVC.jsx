@@ -33,23 +33,23 @@ function DateCVC(props) {
         : null
     }
     const cvcHandler = (e) => {
-      const cvcValue = e.target.value
+      const cvcValue = e.target.value,
+        formatInput = cvcValue.replace(/\D/g, '')
 
-        e.target.maxLength = 3
-        setCVC(cvcValue)
-        cvcValue.length === 0 ? setCvcError(true) : setCvcError(false)
+      e.target.maxLength = 3
+      setCVC(formatInput)
+      cvcValue.length === 0 ? setCvcError(true) : setCvcError(false)
     }
+
+    // Send to Form
     const sendDateData = (m, y, cvcNum) => {
       const data = { m, y, cvcNum }
       props.getData(data)
     }
     
-    sendDateData.propTypes = {
-      m: PropTypes.number.isRequired,
-      y: PropTypes.number.isRequired,
-      cvcNum: PropTypes.number.isRequired
+    DateCVC.propTypes = {
+      getData: PropTypes.func
     }
-
     useEffect(() => {
       sendDateData(month, year, cvc)
     }, [month, year, cvc])

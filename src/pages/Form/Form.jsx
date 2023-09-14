@@ -13,9 +13,32 @@ function Form() {
     year: 0,
     CVC: 0
   }
-
   const [data, updateData] = useState(cardData)
-  const getData = (newData) => {
+
+  // Card Name Data
+  const getCardName = (newData) => {
+    const cardName = newData,
+      updateNewData = {
+        name: cardName
+      }
+    updateData(prevData => ({
+      ...updateNewData,
+      ...prevData
+    }))
+  }
+  // Card Num Data
+  const getCardNumber = (newData) => {
+    const cardNum = newData,
+      updateNewData = {
+        number: cardNum
+      }
+    updateData(prevData => ({
+      ...prevData,
+      ...updateNewData
+    }))
+  }
+  // Date & CVC Data
+  const getDateData = (newData) => {
     const {m ,y, cvcNum} = newData,
       updateNewData = {
         month: m,
@@ -39,9 +62,9 @@ function Form() {
         noValidate
         onSubmit={formHandler}
       >
-        <CardName />
-        <CardNumber />
-        <DateCVC getData={getData} />
+        <CardName getData={getCardName} />
+        <CardNumber getData={getCardNumber}/>
+        <DateCVC getData={getDateData} />
         
         {/* Form BTN */}
         <div className="mx-4 my-1 py-2 flex flex-row justify-center">
