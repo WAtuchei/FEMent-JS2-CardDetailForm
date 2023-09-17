@@ -1,11 +1,12 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 import formData from '../../../formContext'
 
-function CardNumber() {
+function CardNumber(props) {
     const { form } = useContext(formData),
-    [numVal, setNumVal] = useState(''),
-    [isError, setIsError] = useState(false),
-    [isEmpty, setIsEmpty] = useState(false)
+      [numVal, setNumVal] = useState(''),
+      [isError, setIsError] = useState(false),
+      [isEmpty, setIsEmpty] = useState(false)
 
     // ChatGPT
     function formatCardNumber(input) {
@@ -16,15 +17,29 @@ function CardNumber() {
 
     const cardNumHandler = (e) => {
       const cardNumberValue = e.target.value,
-      regEx = /^\d+$/,
-      regExTest = cardNumberValue.replace(/\s/g, ''),
-      formatNum = formatCardNumber(cardNumberValue)
-
+        regEx = /^\d+$/,
+        regExTest = cardNumberValue.replace(/\s/g, ''),
+        formatNum = formatCardNumber(cardNumberValue)
+      
       e.target.maxLength = 19      
       setNumVal(formatNum)
       regExTest.trim().length === 0 ? setIsEmpty(true) : setIsEmpty(false)
       regEx.test(regExTest) || regExTest.length === 0 ? setIsError(false) : setIsError(true)
     }
+
+    // Send to Form
+    const sendNumData = (cardNumber) => {
+      const data = cardNumber.replace(/\s/g, '')
+      props.getData(data)
+    }
+
+    CardNumber.propTypes = {
+      getData: PropTypes.func
+    }
+    useEffect(() => {
+      sendNumData(numVal)
+    }, [numVal])
+
 
    return (
       <div className="flex flex-col mx-4 my-2">
