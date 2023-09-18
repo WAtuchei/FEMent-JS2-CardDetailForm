@@ -48,7 +48,7 @@ function CardNumber(props) {
             type="text"
             id='cardNumber'
             value={numVal}
-            placeholder={form.cardNum}
+            placeholder={form.number}
             className="mt-1.5 px-2.5 py-2"
             onChange={cardNumHandler}
           />

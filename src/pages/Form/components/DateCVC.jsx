@@ -63,14 +63,14 @@ function DateCVC(props) {
           <input type="text"
             name='expire'
             value={month}
-            placeholder={form.cardM}
+            placeholder={form.month}
             className="w-1/2 px-2.5 py-2"
             onChange={monthHandler}
           />
           <input type="text"
             name='expire'
             value={year}
-            placeholder={form.cardY}
+            placeholder={form.year}
             className="Year w-1/2 px-2.5 py-2"
             onChange={yearHandler}
           />
@@ -89,7 +89,7 @@ function DateCVC(props) {
         <input type="text"
           id='CVC'
           value={cvc}
-          placeholder={form.cardCvc}
+          placeholder={form.CVC}
           className="w-full my-1.5 px-2.5 py-2"
           onChange={cvcHandler}
         />

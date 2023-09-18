@@ -33,7 +33,7 @@ function CardName(props) {
             type="text"
             id="cardholderName"
             value={nameVal}
-            placeholder={form.cardName}
+            placeholder={form.name}
             className="mt-1.5 px-2.5 py-2"
             onChange={cardNameHandler}
           />
