@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react"
 import PropTypes from "prop-types"
-import formData from '../../../formContext'
+import cardData from '../../../formContext'
 
 function CardName(props) {
-    const { form } = useContext(formData),
+    const { form } = useContext(cardData),
       [nameVal, setNameVal] = useState(''),
       [isEmpty, setIsEmpty] = useState(false)
 
