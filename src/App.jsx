@@ -7,7 +7,7 @@ import Form from './pages/Form/Form'
 import CardPreview from './pages/CardPreview/CardPreview'
 
 function App() {
-  const exFormData = {
+  const cardData = {
     card: {
       cardName: "Jane Appleseed",
       cardNum: "0000 0000 0000 0000",
@@ -22,7 +22,7 @@ function App() {
       cardY: "YY",
       cardCvc: "e.g. 123",
     },
-    data: {
+    inputData: {
       name: '',
       number: 0,
       month: 0,
@@ -30,16 +30,22 @@ function App() {
       CVC: 0
     }
   }
-  const [formData, updateFormData] = useState(exFormData),
-    updateData = (newItem) => {
 
-    }
+  const [formData, updateFormData] = useState(cardData)
+  const updateCardData = (newItem) => {
+    updateFormData((prevItem) => ({
+      ...prevItem,
+      inputData: {
+        ...newItem
+      }
+    }))
+  }
 
   return (
-    <formContext.Provider value={exFormData}>
+    <formContext.Provider value={formData}>
       <main className="min-w-full flex flex-row">
         <CardPreview />
-        <Form getFormData ={updateData}/>
+        <Form getFormData={updateCardData}/>
       </main>
     </formContext.Provider>
   );

@@ -1,11 +1,12 @@
 import "../../sass/components/Form/form.scss";
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types"
 import { formHandler } from "./FormHandler";
 import CardName from "./components/CardName";
 import CardNumber from "./components/CardNumber";
 import DateCVC from "./components/DateCVC";
 
-function Form() {
+function Form(props) {
   const cardData = {
     name: '',
     number: 0,
@@ -13,7 +14,7 @@ function Form() {
     year: 0,
     CVC: 0
   }
-  const [data, updateData] = useState(cardData)
+  const [formData, updateFormData] = useState(cardData)
 
   // Card Name Data
   const getCardName = (newData) => {
@@ -21,9 +22,9 @@ function Form() {
       updateNewData = {
         name: cardName
       }
-    updateData(prevData => ({
-      ...updateNewData,
-      ...prevData
+    updateFormData(prevData => ({
+      ...prevData,
+      ...updateNewData
     }))
   }
   // Card Num Data
@@ -32,7 +33,7 @@ function Form() {
       updateNewData = {
         number: cardNum
       }
-    updateData(prevData => ({
+    updateFormData(prevData => ({
       ...prevData,
       ...updateNewData
     }))
@@ -45,15 +46,21 @@ function Form() {
         year: y,
         CVC: cvcNum
       }
-    updateData(prevData => ({
+    updateFormData(prevData => ({
       ...prevData,
       ...updateNewData
     }))
   }
 
+  const sendFormData = (data) => {
+    props.getFormData(data)
+  }
+  Form.propTypes = {
+    getFormData: PropTypes.func
+  }
   useEffect(() => {
-    console.log(data);
-  }, [data])
+    sendFormData(formData)
+  }, [formData])
 
   return (
     <section className="flex basis-4/6 justify-center items-center">
