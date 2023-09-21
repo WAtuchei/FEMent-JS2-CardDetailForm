@@ -15,15 +15,11 @@ function CardName(props) {
       cardNameValue.trim().length === 0 ? setIsEmpty(true) : setIsEmpty(false)
     }
 
-    const sendNameData = (name) => {
-      const data = name.toLowerCase()
-      props.getData(data)
-    }
     CardName.propTypes = {
       getData: PropTypes.func
     }
     useEffect(() => {
-      sendNameData(nameVal)
+      props.getData(nameVal)
     }, [nameVal])
 
    return (

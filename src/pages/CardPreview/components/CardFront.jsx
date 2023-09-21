@@ -3,14 +3,22 @@ import cardData from "../../../formContext"
 
 
 function CardFront() {
-  const { card, inputData } = useContext(cardData)
+  const { card, inputData } = useContext(cardData),
+    { number } = inputData,
+    inputNumber = number.toString()
+
+  const formatCardNumber = (input) => {
+    const cleanedInput = input.replace(/\s/g, ''),
+      groups = cleanedInput.match(/.{1,4}/g);
+    return groups ? groups.join(' ') : '';   
+  }
 
   return (
     <>
       <section className="Card relative">
         <div
           className="Card-front w-full h-full absolute inset-y-1/4 
-                    left-3 sm:left-6 md:left-12 lg:left-28 xl:left-38 2xl:left-2/4 text-white"
+            left-3 sm:left-6 md:left-12 lg:left-28 xl:left-38 2xl:left-2/4 text-white"
         >
           {/* container */}
           <div className="w-full h-full relative">
@@ -22,17 +30,35 @@ function CardFront() {
               </svg>
             </div>
             {/* Card inform */}
-            <div className="Card-front__inform w-full flex flex-col pt-2">
+            <div className="Card-front__inform w-full flex flex-col lg:mb-3 pt-2">
               <div className="Card-front__inform--num w-full flex justify-around">
-                <p>{card.number}</p>
+                <p>
+                  {inputData.number !== "" ?
+                    formatCardNumber(inputNumber)
+                    : card.number
+                  }
+                </p>
               </div>
-              <div className="w-full flex justify-between mt-2 px-5">
+              <div className="w-full flex justify-between mt-2 md:mb-1 xl:-mb-2 2xl:mb-0 xl:mt-7 px-8">
                 <div className="Card-front__inform--name">
-                  <p>{card.name}</p>
+                  <p>
+                    {inputData.name !== "" ?
+                      inputData.name.toUpperCase()
+                      : card.name.toUpperCase()
+                    }
+                  </p>
                 </div>
                 <div className="Card-front__inform--date">
                   <p>
-                    {card.month} / {card.year}
+                    {inputData.month !== "" ?
+                      inputData.month
+                      : card.month
+                    }
+                     / 
+                    {inputData.year !== "" ?
+                      inputData.year
+                      : card.year
+                    }
                   </p>
                 </div>
               </div>
