@@ -2,7 +2,7 @@ import "../../sass/components/CardPreview/cardPreview.scss";
 import CardFront from "./components/CardFront";
 import CardBack from "./components/CardBack";
 
-function Form() {
+function CardPreview() {
 
   return (
     <section className="Card-side flex basis-2/6 min-h-full">
@@ -15,4 +15,4 @@ function Form() {
   );
 }
 
-export default Form;
+export default CardPreview;

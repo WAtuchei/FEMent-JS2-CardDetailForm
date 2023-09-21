@@ -9,7 +9,7 @@ function CardNumber(props) {
       [isEmpty, setIsEmpty] = useState(false)
 
     // ChatGPT
-    function formatCardNumber(input) {
+    const formatCardNumber = (input) => {
       const cleanedInput = input.replace(/\s/g, ''),
         groups = cleanedInput.match(/.{1,4}/g);
       return groups ? groups.join(' ') : '';

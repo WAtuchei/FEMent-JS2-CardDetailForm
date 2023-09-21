@@ -9,18 +9,18 @@ import CardPreview from './pages/CardPreview/CardPreview'
 function App() {
   const cardData = {
     card: {
-      cardName: "Jane Appleseed",
-      cardNum: "0000 0000 0000 0000",
-      cardM: "00",
-      cardY: "00",
-      cardCvc: "000",
+      name: "Jane Appleseed",
+      number: "0000 0000 0000 0000",
+      month: "00",
+      year: "00",
+      CVC: "000",
     },
     form: {
-      cardName: "e.g. Jane Appleseed",
-      cardNum: "e.g. 1234 5678 9123 0000",
-      cardM: "MM",
-      cardY: "YY",
-      cardCvc: "e.g. 123",
+      name: "e.g. Jane Appleseed",
+      number: "e.g. 1234 5678 9123 0000",
+      month: "MM",
+      year: "YY",
+      CVC: "e.g. 123",
     },
     inputData: {
       name: '',
