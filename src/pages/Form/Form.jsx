@@ -63,7 +63,7 @@ function Form(props) {
   }, [formData])
 
   return (
-    <section className="flex basis-4/6 justify-center items-center">
+    <section className="flex basis-4/6 justify-center items-center mt-40 sm:mt-5">
       <form
         className="w-3/4 lg:w-1/2 h-1/2 flex flex-col justify-start"
         noValidate

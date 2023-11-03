@@ -43,7 +43,7 @@ function App() {
 
   return (
     <formContext.Provider value={formData}>
-      <main className="min-w-full flex flex-row">
+      <main className="min-w-full flex flex-col sm:h-full sm:flex-row sm:justify-center">
         <CardPreview />
         <Form getFormData={updateCardData}/>
       </main>

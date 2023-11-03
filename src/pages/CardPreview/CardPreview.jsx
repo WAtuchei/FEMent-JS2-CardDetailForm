@@ -5,7 +5,7 @@ import CardBack from "./components/CardBack";
 function CardPreview() {
 
   return (
-    <section className="Card-side flex basis-2/6 min-h-full">
+    <section className="Card-side  min-h-full flex basis-2/6 justify-center border-red-500">
       {/* Card container */}
       <div className="w-full h-full flex flex-col justify-center lg:gap-y-10">
         <CardFront />

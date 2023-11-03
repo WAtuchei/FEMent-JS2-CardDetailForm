@@ -30,7 +30,7 @@ function CardFront() {
               </svg>
             </div>
             {/* Card inform */}
-            <div className="Card-front__inform w-full flex flex-col lg:mb-3 pt-2">
+            <div className="Card-front__inform w-3/4 sm:w-full flex flex-col lg:mb-3 pt-2">
               <div className="Card-front__inform--num w-full flex justify-around">
                 <p>
                   {inputData.number !== "" ?
