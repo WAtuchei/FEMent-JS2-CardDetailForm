@@ -39,7 +39,7 @@ function CardFront() {
                   }
                 </p>
               </div>
-              <div className="w-full flex justify-between mt-2 md:mb-1 xl:-mb-2 2xl:mb-0 xl:mt-7 px-8">
+              <div className="w-full flex justify-between mt-2 md:mb-1 xl:-mb-2 2xl:mb-0 xl:mt-7 px-0 sm:px-8">
                 <div className="Card-front__inform--name">
                   <p>
                     {inputData.name !== "" ?
