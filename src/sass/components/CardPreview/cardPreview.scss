@@ -16,7 +16,7 @@
     .Card-front, .Card-back {
         background-size: contain;
         background-repeat: no-repeat;
-        width: clamp(280px, calc(100% + 2dvw), 445px);
+        width: clamp(280px, calc(91% + 2dvw), 445px);
         height: clamp(180px, calc(80% + 2dvw), 255px);
     }
 
@@ -31,7 +31,9 @@
         }
         &__inform {
             position: absolute;
+            left: 50%;
             bottom: calc(65% - 10dvw);
+            transform: translateX(-50%);
         }
             &__inform--num {
                 font-size: calc(.8rem + .8dvw);
@@ -42,7 +44,7 @@
                 font-size: calc(.5rem + .7dvw);
                 font-weight: 400;
             }
-        
+
     }
 
     .Card-back {
@@ -50,22 +52,24 @@
 
         &__CVC--con {
             position: absolute;
-            top: calc(6.3% + 6.7dvw);  
+            top: calc(6.3% + 6.1dvw);  
             right: calc(2% + 1dvw);          
-        }        
+        }
         &__CVC--num {
             position: absolute;
             top: calc(5% + .5dvw);
-            right: calc(12% + 1dvw);                            
+            right: calc(12% + 1dvw);
         }
     }
 }
 
 // Media Query
 // Mobile
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 500px) {
     .Card {width: clamp(280px, calc(100% + 2dvw), 350px)}
     .Card-side {
+        padding-top: .5rem;
+        font-size: calc(14px + .5dvw);
 
         &::before {
         content: "";
@@ -74,17 +78,62 @@
         }
     }
     .Card-front {
-        top: calc(10rem + 5dvw) !important;
+        width: clamp(220px, calc(80% + 5dvw), 350px) !important;
+        top: calc(5.5rem + 9dvw) !important;
+        left: calc(1rem + 5dvw) !important;
+
+        &__inform {
+            position: absolute;
+            bottom: calc(50% - 10dvw) !important;
+        }
     }
     .Card-back {
+        width: clamp(220px, calc(80% + 5dvw), 350px) !important;
+        top: calc(1rem + 2dvw) !important;
+        left: calc(1rem + 14dvw) !important;
 
         &__CVC--con {
-            top: calc(6.3% + 6.7dvw);  
-            right: calc(2% + 1dvw);          
-        }          
+            top: 37% !important;
+            right: calc(2% + 1dvw);
+        }
         &__CVC--num {
-            top: calc(5% + .5dvw);
-            right: calc(12% + 1dvw);                            
+            right: calc(12% + 1dvw);
+        }
+    }
+}
+// Mobile 2
+@media only screen and (min-width: 501px) and (max-width: 639px) {
+    .Card {width: clamp(280px, calc(100% + 2dvw), 350px)}
+    .Card-side {
+        padding-top: .5rem;
+
+        &::before {
+        content: "";
+        height: 250px !important;
+        background-image: url(../../../assets/images/bg-main-mobile.png);
+        }
+    }
+    .Card-front {
+        width: clamp(220px, calc(80% + 5dvw), 350px) !important;
+        top: calc(5rem + 9dvw) !important;
+        left: calc(3rem + 5dvw) !important;
+
+        &__inform {
+            position: absolute;
+            bottom: calc(50% - 10dvw) !important;
+        }
+    }
+    .Card-back {
+        width: clamp(220px, calc(80% + 5dvw), 350px) !important;
+        top: calc(1rem + 2dvw) !important;
+        left: calc(2.5rem + 18dvw) !important;
+
+        &__CVC--con {
+            top: 38% !important;
+            right: calc(2% + 1dvw);
+        }
+        &__CVC--num {
+            right: calc(12% + 1dvw);
         }
     }
 }
@@ -93,15 +142,14 @@
     .Card-front {
         &__inform {
             width: 97% !important;
-            left: calc(32% - 12dvw) !important;
             bottom: calc(75% - 14dvw) !important;
         }
     }
     .Card-back {
         &__CVC--con {
             top: calc(8% + 6dvw) !important;  
-            right: calc(3% + 1dvw) !important;          
-        }        
+            right: calc(3% + 1dvw) !important;
+        }
     }
 }
 @media only screen and (min-width: 1281px) {
@@ -112,8 +160,8 @@
     }
     .Card-back {
         &__CVC--con {
-            top: calc(6% + 6dvw) !important;  
-            right: calc(2% + 1dvw) !important;          
+            top: 38% !important;
+            right: calc(2% + 1dvw) !important;
         }
     }
 }
@@ -122,32 +170,33 @@
     .Card-front {
         &__inform {
             width: 95% !important;
-            // left: calc(32% - 12dvw) !important;
             bottom: calc(75% - 10dvw) !important;
         }
     }
     .Card-back {
 
         &__CVC--con {
-            top: calc(6% + 5dvw) !important;  
-            right: calc(2% + .5dvw) !important;          
+            top: 38% !important;
+            right: calc(2% + .5dvw) !important;
         }
     }
 }
 @media only screen and (min-width: 1740px) {
-    .Card-front__inform {
-        left: calc(32% - 7dvw) !important;
+    .Card-front {
+
+        &__inform {
         bottom: calc(70% - 8dvw) !important;
+        }
     }
     .Card-back {
 
         &__CVC--con {
-            top: calc(4% + 5dvw) !important;  
-            right: calc(5% + 2dvw) !important;          
+            top: calc(4% + 5dvw) !important;
+            right: calc(5% + 2dvw) !important;
         }
         &__CVC--num {
             top: calc(85% - 1dvw) !important;
-            right: 1% !important;                        
+            right: 1% !important;
         }
     }
 }
