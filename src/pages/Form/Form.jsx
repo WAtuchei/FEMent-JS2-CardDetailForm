@@ -5,8 +5,10 @@ import { formHandler } from "./FormHandler";
 import CardName from "./components/CardName";
 import CardNumber from "./components/CardNumber";
 import DateCVC from "./components/DateCVC";
+import FormComplete from "./components/FormComplete";
 
 function Form(props) {
+  const [FormSuccess, setFormSuccess] = useState(false)
   const cardData = {
     name: '',
     number: 0,
@@ -63,23 +65,30 @@ function Form(props) {
   }, [formData])
 
   return (
-    <section className="flex basis-4/6 justify-center items-center mt-16 sm:mt-5 md:mt-40">
-      <form
-        className="w-3/4 lg:w-1/2 h-1/2 flex flex-col justify-start"
-        noValidate
-        onSubmit={formHandler}
-      >
-        <CardName getData={getCardName} />
-        <CardNumber getData={getCardNumber}/>
-        <DateCVC getData={getDateData} />
-        
-        {/* Form BTN */}
-        <div className="mx-4 my-1 py-2 flex flex-row justify-center">
-          <button className="w-full py-3 text-center text-white">
-            Confirm
-          </button>
-        </div>
-      </form>
+    <section className="flex basis-4/6 justify-center items-center mt-16 sm:mt-5">
+      {FormSuccess ? (
+        <form
+          className="w-3/4 lg:w-1/2 h-1/2 flex flex-col justify-start"
+          noValidate
+          onSubmit={formHandler}
+        >
+          <CardName getData={getCardName} />
+          <CardNumber getData={getCardNumber}/>
+          <DateCVC getData={getDateData} />
+          
+          {/* Form BTN */}
+          <div className="mx-4 my-1 py-2 flex flex-row justify-center">
+            <button className="w-full py-3 text-center text-white">
+              Confirm
+            </button>
+          </div>
+        </form>
+        ) :
+        ( 
+          <FormComplete /> 
+        )
+      }
+
     </section>
   );
 }

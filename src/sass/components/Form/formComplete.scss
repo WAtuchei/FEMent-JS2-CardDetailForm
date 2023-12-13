@@ -1,0 +1,27 @@
+@import '../../varibles';
+
+.complete-text {
+   h2 {
+      color: $DarkViolet;
+      font-size: calc(22px + 1dvw);
+      font-weight: 500;
+      letter-spacing: 4px;
+   }
+   
+   p {
+      color: gray;
+      font-size: calc(12px + .5dvw);
+      font-weight: 500;
+      letter-spacing: .4px;
+   }
+}
+
+.complete-BTN {
+   button {
+      background-color: $DarkViolet !important;
+      border-radius: 5px;
+      font-size: calc(13px + .5dvw);
+      font-weight: 500;
+      letter-spacing: .5px;
+   }
+}
