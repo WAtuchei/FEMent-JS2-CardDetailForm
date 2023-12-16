@@ -23,11 +23,19 @@ form {
             outline: none;
         }
     }
-    button {
+    .BTN-true {
         background-color: $DarkViolet !important;
         border-radius: 5px;
         font-size: calc(13px + .3dvw);
         letter-spacing: .5px;
+        user-select: none;
+    }
+    .BTN-false {
+        background-color: $LightGray !important;
+        border-radius: 5px;
+        font-size: calc(13px + .3dvw);
+        letter-spacing: .5px;
+        user-select: none;
     }
 }
 .Error-MSG {
