@@ -28,16 +28,16 @@ function CardNumber(props) {
     }
 
     // Send to Form
-    const sendNumData = (cardNumber) => {
+    const sendNumData = (cardNumber, empty, error) => {
       const data = cardNumber.replace(/\s/g, '')
-      props.getData(data)
+      props.getData(data, empty, error)
     }
 
     CardNumber.propTypes = {
       getData: PropTypes.func
     }
     useEffect(() => {
-      sendNumData(numVal)
+      sendNumData(numVal, isEmpty, isError)
     }, [numVal])
 
 
@@ -55,13 +55,13 @@ function CardNumber(props) {
           
           <>
             {isError && (
-            <p className="Error-MSG py-1 text-red-500">
+            <p className="Error-MSG pt-1 text-red-500">
               Wrong format, numbers only
             </p>
             )}
             {isEmpty && (
-            <p className="Error-MSG py-1 text-red-500">
-              Can&apos;t be blank 
+            <p className="Error-MSG pt-1 text-red-500">
+              {`Can't be blank`}
             </p>
             )}
           </>

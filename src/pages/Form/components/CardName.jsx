@@ -19,7 +19,7 @@ function CardName(props) {
       getData: PropTypes.func
     }
     useEffect(() => {
-      props.getData(nameVal)
+      props.getData(nameVal, isEmpty)
     }, [nameVal])
 
    return (
@@ -35,7 +35,7 @@ function CardName(props) {
           />
           {isEmpty && (
             <p className="Error-MSG text-red-500">
-              Can&apos;t be blank
+              {`Can't be blank`}
             </p>
             )
           }

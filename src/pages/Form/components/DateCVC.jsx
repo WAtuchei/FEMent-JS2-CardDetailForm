@@ -42,8 +42,8 @@ function DateCVC(props) {
     }
 
     // Send to Form
-    const sendDateData = (m, y, cvcNum) => {
-      const data = { m, y, cvcNum }
+    const sendDateData = ( month, year, cvc, dateErr, cvcErr ) => {
+      const data = { month, year, cvc, dateErr, cvcErr }
       props.getData(data)
     }
     
@@ -51,7 +51,7 @@ function DateCVC(props) {
       getData: PropTypes.func
     }
     useEffect(() => {
-      sendDateData(month, year, cvc)
+      sendDateData(month, year, cvc, dateError, cvcError)
     }, [month, year, cvc])
 
   return (
@@ -78,7 +78,7 @@ function DateCVC(props) {
 
         {dateError && (
           <p className="Error-MSG text-red-500">
-            Can&apos;t be blank
+            {`Can't be blank`}
           </p>
         )}
       </div>
@@ -96,7 +96,7 @@ function DateCVC(props) {
 
         {cvcError && (
           <p className="Error-MSG text-red-500">
-            Can&apos;t be blank
+            {`Can't be blank`}
           </p>
         )}
       </div>
