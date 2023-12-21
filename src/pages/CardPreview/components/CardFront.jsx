@@ -1,7 +1,6 @@
 import { useContext } from "react"
 import cardData from "../../../formContext"
 
-
 function CardFront() {
   const { card, inputData } = useContext(cardData),
     { number } = inputData,
@@ -69,5 +68,4 @@ function CardFront() {
     </>
   )
 }
-
 export default CardFront

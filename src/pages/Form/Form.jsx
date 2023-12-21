@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 import CardName from "./components/CardName";
 import CardNumber from "./components/CardNumber";
 import DateCVC from "./components/DateCVC";
-import FormComplete from "./components/FormComplete";
+import FormComplete from "./FormComplete";
 
 function Form(props) {
   const cardData = {
@@ -22,18 +22,18 @@ function Form(props) {
   }
   
   const [formData, updateFormData] = useState(cardData),
-  [formSuccess, setFormSuccess] = useState(false),
-  [formConfirm, setFormConfirm] = useState(true),
-  [btnTrue, setBtnTrue] = useState('BTN-false'),
-  [inputError, updateInputError] = useState(errorInput)
+    [formSuccess, setFormSuccess] = useState(false),
+    [btnDisabled, setBtnDisabled] = useState(true),
+    [btnTrue, setBtnTrue] = useState('BTN-false'),
+    [inputError, updateInputError] = useState(errorInput)
 
   // Card Name Data
   const getCardName = (newData, error) => {
     const cardName = newData
     const updateNewData = {
         name: cardName
-      },
-    updateError = {
+    }
+    const updateError = {
       cardName: error
     }
     updateFormData(prevData => ({
@@ -53,15 +53,14 @@ function Form(props) {
     const NumError = (emp, err) => {
       if (emp || err) {
         return true;
-      }
-      else {
+      } else {
         return false;
       }
     }
     const updateNewData = {
         number: cardNum
-      },
-    updateError = {
+    }
+    const updateError = {
       cardNum: NumError(empty, error)
     }
     updateFormData(prevData => ({
@@ -81,8 +80,8 @@ function Form(props) {
         month: m,
         year: y,
         CVC: cvcNum
-      },
-    updateError = {
+    }
+    const updateError = {
       cardDate: dateErr,
       cardCVC: cvcErr
     }
@@ -108,10 +107,10 @@ function Form(props) {
     const hasEmpty = Object.values(empty).some((yes) => yes === '')
   
     if (hasError || hasEmpty) {
-      setFormConfirm(true)
+      setBtnDisabled(true)
       setBtnTrue('BTN-false')
     } else {
-      setFormConfirm(false)
+      setBtnDisabled(false)
       setBtnTrue('BTN-true')
     }
   }
@@ -147,14 +146,16 @@ function Form(props) {
           
           {/* Form BTN */}
           <div className="mx-4 my-1 py-2 flex flex-row justify-center">
-            <button className={`${btnTrue} w-full py-3 text-center text-white`} disabled={formConfirm}>
+            <button 
+              className={`${btnTrue} w-full py-3 text-center text-white`} 
+              disabled={btnDisabled}
+            >
               Confirm
             </button>
           </div>
         </form>
         )
       }
-
     </section>
   );
 }

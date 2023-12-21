@@ -1,4 +1,4 @@
-import "../../../sass/components/Form/formComplete.scss"
+import "../../sass/components/Form/formComplete.scss"
 
 function FormComplete () {
    const refresh = () => {
@@ -19,21 +19,22 @@ function FormComplete () {
             <div className="complete-text text-center">
                <h2 className="mt-5">THANK YOU!</h2>
 
-               <p className="mt-3">{`We've added your card details`}</p>
+               <p className="mt-3">
+                  {`We've added your card details`}
+               </p>
             </div>
 
             {/* BTN */}
             <div className="complete-BTN w-full mt-8 my-1 py-2 flex flex-row justify-center">
-             <button 
-               className="w-full xl:w-3/4 py-3 text-center text-white"
-               onClick={refresh}
+               <button 
+                  className="w-full xl:w-3/4 py-3 text-center text-white"
+                  onClick={refresh}
                >
-               Continue
-             </button>
+                  Continue
+               </button>
             </div>
          </div> 
       </section>
    );
 }
-
 export default FormComplete

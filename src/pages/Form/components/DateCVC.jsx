@@ -21,6 +21,7 @@ function DateCVC(props) {
         document.querySelector('.Year').select(0, monthValue.length) 
         : null
     }
+
     const yearHandler = (e) => {
       const yearValue = e.target.value,
         formatInput = yearValue.replace(/\D/g, '')
@@ -32,6 +33,7 @@ function DateCVC(props) {
         document.querySelector('#CVC').select(0, yearValue.length) 
         : null
     }
+
     const cvcHandler = (e) => {
       const cvcValue = e.target.value,
         formatInput = cvcValue.replace(/\D/g, '')
@@ -58,7 +60,11 @@ function DateCVC(props) {
     <div className="flex flex-row mx-4 my-2 gap-x-1">
       {/* Date */}
       <div className="basis-1/2 pe-1 py-2 gap-x-1">
-        <label htmlFor="expire">Exp. Date (MM/YY)</label>
+        <label 
+          htmlFor="expire"
+        >
+          Exp. Date (MM/YY)
+        </label>
         <div className="flex flex-row my-1.5 gap-x-1">
           <input type="text"
             name='expire'
