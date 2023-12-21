@@ -42,8 +42,8 @@ function DateCVC(props) {
     }
 
     // Send to Form
-    const sendDateData = ( month, year, cvc, dateErr, cvcErr ) => {
-      const data = { month, year, cvc, dateErr, cvcErr }
+    const sendDateData = ( m, y, cvcNum, dateErr, cvcErr ) => {
+      const data = { m, y, cvcNum, dateErr, cvcErr }
       props.getData(data)
     }
     

@@ -29,6 +29,7 @@ form {
         font-size: calc(13px + .3dvw);
         letter-spacing: .5px;
         user-select: none;
+        animation: buttonTransition 1s ease;
     }
     .BTN-false {
         background-color: $LightGray !important;
@@ -41,4 +42,9 @@ form {
 .Error-MSG {
     font-size: calc(9px + .3dvw);
     letter-spacing: normal;
+}
+
+@keyframes buttonTransition {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }

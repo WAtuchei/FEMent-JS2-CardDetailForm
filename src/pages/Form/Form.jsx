@@ -27,7 +27,6 @@ function Form(props) {
   [btnTrue, setBtnTrue] = useState('BTN-false'),
   [inputError, updateInputError] = useState(errorInput)
 
-  console.log(inputError);
   // Card Name Data
   const getCardName = (newData, error) => {
     const cardName = newData
@@ -100,21 +99,23 @@ function Form(props) {
   // Form Handler
   const formHandler = (e) => {
     e.preventDefault()
+    setFormSuccess(true)
   }
 
-  // Error Check
-  const errorCheck = (errors) => {
-    for (let o in errors) {
-      if (errors[o]){
-        setFormConfirm(true)
-        setBtnTrue('BTN-false')
-      }
-      else {
-        setFormConfirm(false)
-        setBtnTrue('BTN-true')
-      }
+  // Error Check ChatGPT
+  const errorCheck = (errors, empty) => {
+    const hasError = Object.values(errors).some((error) => error);
+    const hasEmpty = Object.values(empty).some((yes) => yes === '')
+  
+    if (hasError || hasEmpty) {
+      setFormConfirm(true)
+      setBtnTrue('BTN-false')
+    } else {
+      setFormConfirm(false)
+      setBtnTrue('BTN-true')
     }
   }
+
   // Send Data back to App
   const sendFormData = (data) => {
     props.getFormData(data)
@@ -124,7 +125,7 @@ function Form(props) {
   }
   useEffect(() => {
     sendFormData(formData)
-    errorCheck(inputError)
+    errorCheck(inputError, formData)
   }, [formData, inputError])
 
   return (

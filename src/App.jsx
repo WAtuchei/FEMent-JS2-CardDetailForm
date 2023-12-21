@@ -30,7 +30,7 @@ function App() {
       CVC: 0
     }
   }
-
+  
   const [formData, updateFormData] = useState(cardData)
   const updateCardData = (newItem) => {
     updateFormData((prevItem) => ({

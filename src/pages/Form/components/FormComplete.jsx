@@ -1,6 +1,10 @@
 import "../../../sass/components/Form/formComplete.scss"
 
 function FormComplete () {
+   const refresh = () => {
+      location.reload()
+   }
+
    return (   
       <section className="flex basis-4/6 justify-center items-center mt-8 sm:mt-5 py-3">
          <div className="w-full md:w-3/4 h-1/2 flex flex-col justify-center items-center">
@@ -20,7 +24,10 @@ function FormComplete () {
 
             {/* BTN */}
             <div className="complete-BTN w-full mt-8 my-1 py-2 flex flex-row justify-center">
-             <button className="w-full xl:w-3/4 py-3 text-center text-white">
+             <button 
+               className="w-full xl:w-3/4 py-3 text-center text-white"
+               onClick={refresh}
+               >
                Continue
              </button>
             </div>
