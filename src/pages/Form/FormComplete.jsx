@@ -25,7 +25,7 @@ function FormComplete () {
             </div>
 
             {/* BTN */}
-            <div className="complete-BTN w-full mt-8 my-1 py-2 flex flex-row justify-center">
+            <div className="complete-BTN w-full mt-8 px-12 py-2 flex flex-row justify-center">
                <button 
                   className="w-full xl:w-3/4 py-3 text-center text-white"
                   onClick={refresh}
