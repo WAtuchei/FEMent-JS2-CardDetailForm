@@ -12,7 +12,7 @@ function CardNumber(props) {
     const formatCardNumber = (input) => {
       const cleanedInput = input.replace(/\s/g, ''),
         groups = cleanedInput.match(/.{1,4}/g);
-      return groups ? groups.join(' ') : '';
+      return groups ? groups.join('  ') : '';
     }
 
     const cardNumHandler = (e) => {
@@ -21,9 +21,9 @@ function CardNumber(props) {
         regExTest = cardNumberValue.replace(/\s/g, ''),
         formatNum = formatCardNumber(cardNumberValue)
       
-      e.target.maxLength = 19      
+      e.target.maxLength = 22
       setNumVal(formatNum)
-      regExTest.trim().length === 0 ? setIsEmpty(true) : setIsEmpty(false)
+      regExTest.trim().length === 0 || regExTest.trim().length !== 16 ? setIsEmpty(true) : setIsEmpty(false)
       regEx.test(regExTest) || regExTest.length === 0 ? setIsError(false) : setIsError(true)
     }
 
@@ -61,7 +61,7 @@ function CardNumber(props) {
             )}
             {isEmpty && (
             <p className="Error-MSG pt-1 text-red-500">
-              {`Can't be blank`}
+              {`Card's number is required`}
             </p>
             )}
           </>

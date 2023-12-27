@@ -16,6 +16,7 @@ function DateCVC(props) {
 
       e.target.maxLength = 2
       setMonth(formatInput)
+      monthValue > 12 ? setMonth(12) : monthValue
       monthValue.length === 0 ? setDateError(true) : setDateError(false)
       monthValue.length === 2 ? 
         document.querySelector('.Year').select(0, monthValue.length) 
@@ -28,6 +29,7 @@ function DateCVC(props) {
 
       e.target.maxLength = 2
       setYear(formatInput)
+      yearValue > 29 ? setYear(29) : yearValue
       yearValue.length === 0 ? setDateError(true) : setDateError(false)
       yearValue.length === 2 ? 
         document.querySelector('#CVC').select(0, yearValue.length) 
@@ -40,7 +42,7 @@ function DateCVC(props) {
 
       e.target.maxLength = 3
       setCVC(formatInput)
-      cvcValue.length === 0 ? setCvcError(true) : setCvcError(false)
+      cvcValue.length === 0 || cvcValue.length < 3 ? setCvcError(true) : setCvcError(false)
     }
 
     // Send to Form
@@ -102,7 +104,7 @@ function DateCVC(props) {
 
         {cvcError && (
           <p className="Error-MSG text-red-500">
-            {`Can't be blank`}
+            {`CVC is required`}
           </p>
         )}
       </div>
