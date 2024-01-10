@@ -26,10 +26,12 @@ function DateCVC(props) {
     const yearHandler = (e) => {
       const yearValue = e.target.value,
         formatInput = yearValue.replace(/\D/g, '')
+      const nowYear = new Date().getFullYear().toString().slice(2),
+        currentYear = Number(nowYear)
 
       e.target.maxLength = 2
       setYear(formatInput)
-      yearValue > 29 ? setYear(29) : yearValue
+      yearValue > currentYear + 6 ? setYear( currentYear + 6 ) : yearValue
       yearValue.length === 0 ? setDateError(true) : setDateError(false)
       yearValue.length === 2 ? 
         document.querySelector('#CVC').select(0, yearValue.length) 
@@ -70,6 +72,7 @@ function DateCVC(props) {
         <div className="flex flex-row my-1.5 gap-x-1">
           <input type="text"
             name='expire'
+            max={12}
             value={month}
             placeholder={form.month}
             className="w-1/2 px-2.5 py-2"
